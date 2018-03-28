@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../hoc/Aux';
 import Toolbar from './Toolbar';
 import Login from '../LoginPage/Login'
 import classes from './Layout.css'
