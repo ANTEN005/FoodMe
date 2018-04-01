@@ -1,5 +1,6 @@
 ﻿Functional specification:
 
+
 FoodMe is a website where you can share pictures of your food aswell as sharing and storing your recipes.
 To get access to FoodMe the users need to create an acount so that they can log in. When logged in
 the functionality will kind of remind you of Facebook. There will be a feed which updates whenever
@@ -8,6 +9,8 @@ photos. And also a page where you can find other users and make a friend request
 is the basic functional aspects of the website, it will work as a social media but for food only.
 
 Technological specification:
+
+
 The fronend will be created with React since the reuse of components will make my work
 a lot smoother with this website. As time goes by I will add third-party libraries that 
 I also will work with. Besides React I will also use Redux.
