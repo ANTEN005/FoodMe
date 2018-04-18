@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button} from 'semantic-ui-react';
+import {Form, Button, Message} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError'
@@ -25,9 +25,15 @@ class LoginForm extends React.Component{
         //this object will be empty if no errors, otherwise display them
         const errors = this.validate(this.state.data);
         this.setState({errors});
-        //check if data is valid
+        //if data is valid call on the submit which returns promise
+        //because in the loginpage submit function we return the result of the login
+        //and after that comes the promise
         if(Object.keys(errors).length === 0){
-            this.props.submit(this.state.data);
+            this.setState({loading: true}); //set state loading before request, if everything goes well we will redirect and this component will dismount, so we dont have to do anyrhing, if there is error loading is false
+            this.props.submit(this.state.data)
+                .catch(err => this.setState({ //if something goes wrong errors from the server will be written into this components state 
+                    errors: err.response.data.errors, loading: false
+                }));
         }
     };
     //return errors if there are some
@@ -39,9 +45,15 @@ class LoginForm extends React.Component{
     }
     
     render(){
-        const{data, errors} = this.state
+        const{data, errors, loading} = this.state
         return(
-            <Form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit} loading={loading}>
+                {errors.global && (
+                <Message negative>
+                <Message.Header>Something went wrong</Message.Header>
+                <p>{errors.global}</p>
+                </Message>
+                )}
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input
