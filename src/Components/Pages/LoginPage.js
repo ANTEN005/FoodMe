@@ -9,7 +9,7 @@ class LoginPage extends React.Component{
     //make a sync request, get data back, update our reducers in redux store and then redirect somewhere
     //the form does not know anything about this, the form only collect data and validate it and send us  this data
     submit = data => 
-        this.props.login(data).then(() => this.props.history.push('/'));
+        this.props.login(data).then(() => this.props.history.push('/dashboard'));
     render(){
         return(
             <div>

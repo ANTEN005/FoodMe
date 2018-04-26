@@ -1,12 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Route} from "react-router-dom";
 import Homepage from "./Components/Pages/Homepage";
 import LoginPage from "./Components/Pages/LoginPage";
-
-const App = () => (
+import DashboardPage from "./Components/Pages/DashboardPage";
+import UserRoute from './Components/routes/UserRoute';
+import GuestRoute from './Components/routes/GuestRoute';
+const App = ({location}) => (
   <div className="ui container">
-    <Route path="/" exact component={Homepage}/>
-    <Route path="/login" exact component={LoginPage}/>
+    <Route location={location} path="/" exact component={Homepage}/>
+    <GuestRoute location={location} path="/login" exact component={LoginPage}/>
+    <UserRoute location={location} path="/dashboard" exact component={DashboardPage}/>
   </div>
 );
+
+App.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired
+}
 export default App;
