@@ -7,19 +7,32 @@ import DashboardPage from "./Components/Pages/DashboardPage";
 import UserRoute from './Components/routes/UserRoute';
 import GuestRoute from './Components/routes/GuestRoute';
 import SignupPage from "./Components/Pages/SignupPage";
+import RecipePage from "./Components/Pages/RecipePage";
+import TopNavigation from './Components/navigation/TopNavigation';
+import {connect} from 'react-redux';
 
-const App = ({location}) => (
+//only show navbar if user is authenticated
+const App = ({location, isAuthenticated}) => (
   <div className="ui container">
+    {isAuthenticated && <TopNavigation />}
     <Route location={location} path="/" exact component={Homepage}/>
     <GuestRoute location={location} path="/login" exact component={LoginPage}/>
     <GuestRoute location={location} path="/signup" exact component={SignupPage}/>
-    <UserRoute location={location} path="/dashboard" exact component={DashboardPage}/>
+    <UserRoute location={location} path="/dashboard"  exact component={DashboardPage}/>
+    <UserRoute location={location} path="/recipes" exact component={RecipePage}/>
   </div>
 );
 
 App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 }
-export default App;
+
+function mapStateToProps(state){
+  return{
+    isAuthenticated: !!state.user.token
+  }
+}
+export default connect(mapStateToProps)(App);

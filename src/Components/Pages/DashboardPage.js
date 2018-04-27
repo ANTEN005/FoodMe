@@ -6,7 +6,7 @@ import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
 const DashboardPage = () => (
     <div>
-        <p>Dashboard</p>
+        <p>Feed</p>
     </div>
 );
 
