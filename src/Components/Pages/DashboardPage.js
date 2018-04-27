@@ -4,20 +4,12 @@ import PropTypes from 'prop-types';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 
 
-const DashboardPage = ({isConfirmed}) => (
+const DashboardPage = () => (
     <div>
-        {!isConfirmed && <ConfirmEmailMessage/> }
+        <p>Dashboard</p>
     </div>
 );
 
-DashboardPage.propTypes ={
-    isConfirmed: PropTypes.bool.isRequired
-};
 
-function mapStateToProps(state){
-    return{
-        isConfirmed: !!state.user.confirmed
-    }
-}
 
-export default connect(mapStateToProps)(DashboardPage);
+export default DashboardPage;
