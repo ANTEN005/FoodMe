@@ -5,6 +5,7 @@
     import bodyParser from "body-parser";
     import dotenv from 'dotenv';
     import users from './routes/users';
+    import recipes from './routes/recipes';
 
     dotenv.config();
     const app = express();
@@ -13,6 +14,7 @@
 
     app.use('/api/auth', auth);
     app.use('/api/users', users);
+    app.use('/api/recipes', recipes);
 
     app.get('/*', (req, res) => {
         res.sendFile(path.join(__dirname, 'index.html'));

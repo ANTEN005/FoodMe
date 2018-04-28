@@ -18,6 +18,7 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(thunk)));
 
 //if there is a token in localstorage we want to dispatch userloggedin action, so when we refresh we stay logged in 
+//we also want the email to remain in the logged in state
 if (localStorage.foodmeJWT){
     const payload = decode(localStorage.foodmeJWT);
     const user = { token: localStorage.foodmeJWT, email: payload.email, confirmed: true};

@@ -25,3 +25,5 @@ export const logout = () => (dispatch) => {
     localStorage.removeItem('foodmeJWT');
     dispatch(userLoggedOut());
 }; 
+
+

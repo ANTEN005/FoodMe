@@ -19,7 +19,7 @@ const App = ({location, isAuthenticated}) => (
     <GuestRoute location={location} path="/login" exact component={LoginPage}/>
     <GuestRoute location={location} path="/signup" exact component={SignupPage}/>
     <UserRoute location={location} path="/dashboard"  exact component={DashboardPage}/>
-    <UserRoute location={location} path="/recipes" exact component={RecipePage}/>
+    <UserRoute location={location} path="/findrecipes" exact component={RecipePage}/>
   </div>
 );
 
