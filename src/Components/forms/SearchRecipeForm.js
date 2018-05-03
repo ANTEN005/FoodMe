@@ -1,6 +1,5 @@
 import React from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
-import {findRecipes} from '../../actions/recipes';
 import axios from 'axios';
 //when user types we will send request to server, who will ping api
 //which will send back data to server who will parse this data and feed it to us
