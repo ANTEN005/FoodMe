@@ -56,8 +56,8 @@ class AddRecipeForm extends Component {
           />
         </Form.Field>
 
-      <Form.Field control={TextArea} label='About' id="description"
-            name="description" placeholder='Tell us more about you...' value={data.description}
+      <Form.Field control={TextArea} label='Description' id="description"
+            name="description" placeholder='Write the steps to make the dish' value={data.description}
             onChange={this.onChange} >
       </Form.Field>
      {/*    <Form.Field>

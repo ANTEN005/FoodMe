@@ -12,6 +12,7 @@ const TopNavigation = ({user, logout}) => (
         <Menu.Item as={Link} to="/profile">Profile</Menu.Item>
         <Menu.Item as={Link} to="/findrecipes">Browse</Menu.Item>
         <Menu.Item as={Link} to="/addrecipes">Add Recipes</Menu.Item>
+        <Menu.Item as={Link} to="/myrecipes">My Recipes</Menu.Item>
         <Menu.Item position="right" onClick={() => logout()}>Logout</Menu.Item>
     </Menu>
 );

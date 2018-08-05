@@ -2,7 +2,7 @@ import React from 'react';
 import AddRecipeForm from '../forms/AddRecipeForm';
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
-import {addRecipe} from "../../actions/addRecipe";
+import {addRecipe} from "../../actions/recipes";
 
 class AddRecipePage extends React.Component {
 

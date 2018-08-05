@@ -6,13 +6,13 @@ router.get('/search', (req, res) => {
     res.json({
         recipes: [
             {
-                EdamamId: 1,
-                title: "Pasta",
+                id: 1,
+                name: "Pasta",
                 authors: "Italian"
             },
             {
-                EdamamId: 2,
-                title: "Hamburger",
+                id: 2,
+                name: "Hamburger",
                 authors: "Fast food"
             }
 

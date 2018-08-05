@@ -21,7 +21,6 @@ class SearchRecipeForm extends React.Component{
         });
         this.timer=setTimeout(this.fetchOptions, 1000);
     }
-    //inte klar se episode 7.2 vid 14:00 typ
     fetchOptions = () => {
         if(!this.state.query) return;
         this.setState({loading: true});
@@ -31,11 +30,11 @@ class SearchRecipeForm extends React.Component{
             const options = [];
             const recipesHash = {};
             recipes.forEach(recipe => {
-              recipesHash[recipe.EdamamId] = recipe;
+              recipesHash[recipe.id] = recipe;
               options.push({
-                key: recipe.EdamamId,
-                value: recipe.EdamamId,
-                text: recipe.title
+                key: recipe.id,
+                value: recipe.id,
+                text: recipe.name
               });
             });
             this.setState({ loading: false, options, recipes: recipesHash });

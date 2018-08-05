@@ -11,6 +11,7 @@ import RecipePage from "./Components/Pages/RecipePage";
 import TopNavigation from './Components/navigation/TopNavigation';
 import {connect} from 'react-redux';
 import AddRecipePage from './Components/Pages/AddRecipePage';
+import MyRecipesPage from './Components/Pages/MyRecipesPage';
 
 //only show navbar if user is authenticated
 const App = ({location, isAuthenticated}) => (
@@ -22,6 +23,7 @@ const App = ({location, isAuthenticated}) => (
     <UserRoute location={location} path="/dashboard"  exact component={DashboardPage}/>
     <UserRoute location={location} path="/findrecipes" exact component={RecipePage}/>
     <UserRoute location={location} path="/addrecipes" exact component={AddRecipePage}/>
+    <UserRoute location={location} path="/myrecipes" exact component={MyRecipesPage}/>
   </div>
 );
 
