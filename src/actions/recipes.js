@@ -10,6 +10,7 @@ export const saveRecipe = (recipe) => ({
 
 export const addRecipe = (data) => (dispatch) =>
     api.recipe.addRecipe(data).then(recipe => dispatch(saveRecipe(recipe)))
+    .then(dispatch(fetchRecipes()))
 
 export function fetchRecipes(){
     return dispatch => {

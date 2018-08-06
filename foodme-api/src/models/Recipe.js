@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
     name: {type: String},
     ingredients: {type: String},
     description: {type: String},
+    userId: {type: mongoose.Schema.Types.ObjectId}
     }
 );
 
