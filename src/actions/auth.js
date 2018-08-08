@@ -1,5 +1,6 @@
 import {USER_LOGGED_IN, USER_LOGGED_OUT} from '../types';
 import api from '../api';
+import setAuthorizationHeader from "../utils/setAuthorizationHeader";
 //takes user and returns user_logged_in and pass user down to it
 //when this action is dispatched we want to place this
 //user data into our state, this we need a reducer for
@@ -17,12 +18,14 @@ export const userLoggedOut = () => ({
 export const login = (credentials) => (dispatch) => 
 api.user.login(credentials).then(user => {
     localStorage.foodmeJWT = user.token;
+    setAuthorizationHeader(user.token);
     dispatch(userLoggedIn(user))
 }); 
 //logout thunk action, we remove token from localstorage 
 //and then we dispatch userloggedout action
 export const logout = () => (dispatch) => {
     localStorage.removeItem('foodmeJWT');
+    setAuthorizationHeader();
     dispatch(userLoggedOut());
 }; 
 

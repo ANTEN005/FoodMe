@@ -1,16 +1,17 @@
-import {SAVE_NEW_RECIPE, FETCH_RECIPES_BEGIN, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_FAILURE }  from '../types';
+import {SAVE_NEW_RECIPE, RECIPES_FETCHED, FETCH_RECIPES_BEGIN, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_FAILURE }  from '../types';
 //reducers take states and actions and return a new state
 const initialState = {
     items: [],
     loading: false,
     error: null
   };
-  
+
   export default function recipes(state = initialState, action) {
     switch(action.type) {
-        
+      case RECIPES_FETCHED:
+        return {...state, ...action.data.recipes};
       case SAVE_NEW_RECIPE:
-      return action.recipe;
+        return action.recipe;
         
       case FETCH_RECIPES_BEGIN:
         // Mark the state as "loading" so we can show a spinner or something

@@ -1,8 +1,9 @@
 import express from 'express';
 import Recipe from '../models/Recipe';
+import authenticate from "../middleware/authenticate";
 
 const router = express.Router();
-
+router.use(authenticate);
 router.get('/search', (req, res) => {
     Recipe.find({}).exec((err,recipes) => {
         if(err){
@@ -12,8 +13,7 @@ router.get('/search', (req, res) => {
           return res.json({'success':true,'message':'Successfully fetched all your recipes',recipes});
         }
         else{
-          return res.json({'success':false,'message':'No recipes were found'});
-        }
+          return res.json({error:"Invalid credentials"})        }
       });
 
 });

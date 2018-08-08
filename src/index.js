@@ -11,6 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { userLoggedIn } from './actions/auth';
+import setAuthorizationHeader from "./utils/setAuthorizationHeader";
 //rootReducer is the whole tree, stateobject
 
 const store = createStore(
@@ -21,7 +22,11 @@ const store = createStore(
 //we also want the email to remain in the logged in state
 if (localStorage.foodmeJWT){
     const payload = decode(localStorage.foodmeJWT);
-    const user = { token: localStorage.foodmeJWT, email: payload.email, confirmed: true};
+    const user = { 
+        token: localStorage.foodmeJWT, 
+        email: payload.email, 
+        confirmed: true};
+    setAuthorizationHeader(localStorage.foodmeJWT);
     store.dispatch(userLoggedIn(user));
 }
 
