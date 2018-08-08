@@ -1,38 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchRecipes} from "../../actions/recipes";
+import RecipeCard from '../cards/RecipeCard';
+import {Card} from 'semantic-ui-react';
 
-class RecipeList extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchRecipes());
+export default function RecipeList ({recipes}){
+
+  const cards = () => {
+    return recipes.map(recipe => {
+      return (
+        <RecipeCard key={recipe.id} recipe={recipe}/>
+      )
+    })
   }
 
-  render() {
-    const { error, loading, recipes } = this.props;
-    
-    if (error) {
-      return <div>Error! {error.message}</div>;
-    }
-
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-
-    return (
-      <ul>
-        {recipes.map(recipe =>
-          <li key={recipe.id}>{recipe.name}</li>
-        )}
-      </ul>
-    );
-  }
+  return (
+    <Card.Group>
+      {cards()}
+    </Card.Group>
+  )
 }
-
-const mapStateToProps = state => ({
-  recipes: state.recipes.items,
-  loading: state.recipes.loading,
-  error: state.recipes.error
-});
-
-export default connect(mapStateToProps)(RecipeList);
-

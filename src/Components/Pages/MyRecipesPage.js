@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchRecipes} from "../../actions/recipes";
-
+import RecipeList from "../lists/RecipeList";
 class MyRecipesPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchRecipes());
@@ -19,12 +19,11 @@ class MyRecipesPage extends React.Component {
     }
     
     return (
-      <ul>
-        {recipes.map(recipe =>
-          <li key={recipe.id}>{recipe.text}</li>
-        )}
-      </ul>
-    );
+      <div>
+        <h1>Your Recipes</h1>
+          <RecipeList recipes ={this.props.recipes}></RecipeList>
+      </div>
+    )    
   }
 }
 
