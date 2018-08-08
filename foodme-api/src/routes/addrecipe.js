@@ -7,11 +7,8 @@ const router = express.Router();
 router.use(authenticate);
 
 router.post('/', (req, res) => {
-    const {name, ingredients, description} = req.body.recipe;
-    const recipe = new Recipe({name, ingredients, description});
-    recipe
-        .save()
-        .then(res.json({recipe}))
+    Recipe.create({ ...req.body.recipe, userId: req.currentUser._id })
+    .then(recipe => res.json({ recipe }))
         .catch(err => res.status(400).json({errors: parseErrors(err.errors)}));      
 });
 
