@@ -3,11 +3,11 @@ import { Card, Icon, Button} from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 
 export default function RecipeCard({recipe}){
-    console.log(recipe.text)
+    console.log(recipe.ingredients)
     return(
         <Card
             image='/assets/food2.jpg'
-            header= {recipe.text}
+            header= {recipe.name}
             meta={recipe.ingredients}
             description={recipe.description}
         />

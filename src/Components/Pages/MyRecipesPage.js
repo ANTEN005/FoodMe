@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchRecipes} from "../../actions/recipes";
+import { fetchRecipes, getRecipeDetails} from "../../actions/recipes";
 import RecipeList from "../lists/RecipeList";
+import RecipeCard from '../cards/RecipeCard';
+import {Card} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
+
+
 class MyRecipesPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchRecipes());
   }
-
   render() {
     const { error, loading, recipes } = this.props;
     console.log(recipes);
@@ -21,11 +25,18 @@ class MyRecipesPage extends React.Component {
     return (
       <div>
         <h1>Your Recipes</h1>
-          <RecipeList recipes ={this.props.recipes}></RecipeList>
+        <Card.Group>
+        {recipes.map(recipe => 
+        <Link to={'/recipedetails'} onClick={ () => this.props.dispatch(getRecipeDetails(recipe))}>
+        <RecipeCard key={recipe.id} recipe={recipe}/>
+        </Link>
+        )}
+        </Card.Group>
       </div>
     )    
   }
 }
+
 
 const mapStateToProps = state => ({
   recipes: state.recipes.items,

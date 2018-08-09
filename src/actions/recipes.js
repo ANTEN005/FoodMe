@@ -1,5 +1,5 @@
 import api from '../api';
-import { SAVE_NEW_RECIPE, FETCH_RECIPES_BEGIN, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_FAILURE } from '../types';
+import { SAVE_NEW_RECIPE, FETCH_RECIPES_BEGIN, FETCH_RECIPES_SUCCESS, FETCH_RECIPES_FAILURE, GET_RECIPE_DETAILS } from '../types';
 import axios from 'axios';
 
 
@@ -25,7 +25,9 @@ export function fetchRecipes(){
               recipearray.push({
                 key: recipe.id,
                 value: recipe.id,
-                text: recipe.name
+                name: recipe.name,
+                ingredients: recipe.ingredients,
+                description: recipe.description
               });
             });
             dispatch(fetchRecipesSuccess(recipearray));
@@ -42,6 +44,10 @@ function handleErrors(response){
     }
     return response;
 }
+export const getRecipeDetails = recipe => ({
+    type: GET_RECIPE_DETAILS,
+    payload: recipe
+  })
 
 export const fetchRecipesBegin = () => ({
     type: FETCH_RECIPES_BEGIN
