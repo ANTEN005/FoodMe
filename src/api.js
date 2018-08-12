@@ -14,7 +14,11 @@ export default {
     recipe:{ 
         addRecipe: (recipe) =>
             axios.post('/api/addrecipe', {recipe}).then(res => res.data.recipe),
-        fetchAll: () => axios.get('/api/recipes/search').then(res => res.data.recipes)
-        
+        fetchAll: () => 
+            axios.get('/api/recipes/search').then(res => res.data.recipes),
+        addToMyRecipes: (recipe) =>
+            axios.post('/api/addToMyRecipes', {recipe}).then(res => res.data.recipe),
+        fethMyRecipes: () =>
+            axios.get('/api/getallrecipes/search').then(res => res.data.recipe)
     }
 }

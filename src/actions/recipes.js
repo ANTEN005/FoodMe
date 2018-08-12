@@ -13,7 +13,36 @@ export const addRecipe = (data) => (dispatch) =>
     api.recipe.addRecipe(data).then(recipe => dispatch(saveRecipe(recipe)))
     .then(dispatch(fetchRecipes()))
 
+export const addToMyRecipes = (data) => (dispatch) =>
+    api.recipe.addToMyRecipes(data).then(recipe => dispatch(saveRecipe(recipe)))
+    .then(dispatch(fetchRecipes()))   
+
 export function fetchRecipes(){
+    return dispatch => {
+        dispatch(fetchRecipesBegin());
+        axios.get("/api/getallrecipes/search")
+        .then(res => res.data.recipes)
+        .then(recipes => {
+            const recipearray = [];
+            const recipesHash = {};
+            recipes.forEach(recipe => {
+              recipesHash[recipe.id] = recipe;
+              recipearray.push({
+                key: recipe.id,
+                value: recipe.id,
+                name: recipe.name,
+                ingredients: recipe.ingredients,
+                description: recipe.description
+              });
+            });
+            dispatch(fetchRecipesSuccess(recipearray));
+            return recipearray;
+        })
+        .catch(error => dispatch(fetchRecipesFailure(error)));
+    };
+}
+
+export function fetchMyRecipes(){
     return dispatch => {
         dispatch(fetchRecipesBegin());
         axios.get("/api/recipes/search")

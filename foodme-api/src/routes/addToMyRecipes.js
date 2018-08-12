@@ -8,8 +8,7 @@ const router = express.Router();
 router.use(authenticate);
 
 router.post('/', (req, res) => {
-    Recipe.create({ ...req.body.recipe, userId: req.currentUser._id })
-    .then(MyRecipes.create({...req.body.recipe, userId: req.currentUser._id}))
+    MyRecipes.create({ ...req.body.recipe, userId: req.currentUser._id })
     .then(recipe => res.json({recipe}))
         .catch(err => res.status(400).json({errors: parseErrors(err.errors)}));      
 });

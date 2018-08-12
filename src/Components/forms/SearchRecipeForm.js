@@ -24,9 +24,10 @@ class SearchRecipeForm extends React.Component{
     fetchOptions = () => {
         if(!this.state.query) return;
         this.setState({loading: true});
-        axios.get(`/api/recipes/search?q=${this.state.query}`)
+        axios.get(`/api/getallrecipes/search?q=${this.state.query}`)
         .then(res => res.data.recipes)
         .then(recipes => {
+            console.log(recipes)
             const options = [];
             const recipesHash = {};
             recipes.forEach(recipe => {

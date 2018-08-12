@@ -7,6 +7,9 @@
     import users from './routes/users';
     import recipes from './routes/recipes';
     import addrecipe from './routes/addrecipe';
+    import getallrecipes from './routes/getallrecipes';
+    import addToMyRecipes from './routes/addToMyRecipes';
+
 
     dotenv.config();
     const app = express();
@@ -17,6 +20,8 @@
     app.use('/api/users', users);
     app.use('/api/recipes', recipes);
     app.use('/api/addrecipe', addrecipe);
+    app.use('/api/getallrecipes', getallrecipes);
+    app.use('/api/addToMyRecipes', addToMyRecipes);
 
     app.get('/*', (req, res) => {
         res.sendFile(path.join(__dirname, 'index.html'));

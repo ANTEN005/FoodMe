@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchRecipes, getRecipeDetails} from "../../actions/recipes";
+import { fetchMyRecipes, getRecipeDetails} from "../../actions/recipes";
 import RecipeList from "../lists/RecipeList";
 import RecipeCard from '../cards/RecipeCard';
 import {Card} from 'semantic-ui-react';
@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 class MyRecipesPage extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchRecipes());
+    this.props.dispatch(fetchMyRecipes());
   }
   render() {
     const { error, loading, recipes } = this.props;
