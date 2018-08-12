@@ -13,7 +13,7 @@ const initialState = {
     return state;
   }
   
-
+  
   export const recipes = (state = initialState, action) => {
     switch(action.type) {
       case RECIPES_FETCHED:

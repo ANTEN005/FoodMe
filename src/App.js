@@ -14,6 +14,7 @@ import AddRecipePage from './Components/Pages/AddRecipePage';
 import MyRecipesPage from './Components/Pages/MyRecipesPage';
 import RecipeDetailsPage from './Components/Pages/RecipeDetailsPage';
 
+
 //only show navbar if user is authenticated
 const App = ({location, isAuthenticated}) => (
   <div className="ui container">
