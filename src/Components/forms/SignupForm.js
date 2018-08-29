@@ -67,6 +67,7 @@ class SignupForm extends React.Component {
             type="password"
             id="password"
             name="password"
+            placeholder="enter password"
             value={data.password}
             onChange={this.onChange}
           />

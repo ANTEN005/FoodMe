@@ -1,0 +1,19 @@
+.Image{
+
+    height: 700px;
+    width: 900px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  
+  }
+  
+  .carousel {
+    margin: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow: auto;
+    border: 1px solid #ccc;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16),0 10px 15px 0 rgba(160, 250, 118, 0.12);
+  }

@@ -12,6 +12,7 @@ import rootReducer from './rootReducer';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { userLoggedIn } from './actions/auth';
 import setAuthorizationHeader from "./utils/setAuthorizationHeader";
+
 //rootReducer is the whole tree, stateobject
 
 const store = createStore(
