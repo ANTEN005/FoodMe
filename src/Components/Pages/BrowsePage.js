@@ -5,7 +5,7 @@ import {getRecipeDetails} from '../../actions/recipes';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-class RecipePage extends React.Component{
+class BrowsePage extends React.Component{
     state = {
         recipe: null
     }
@@ -22,7 +22,7 @@ class RecipePage extends React.Component{
     render(){
         return(
             <Segment>
-                <h1> Add new recipe to your collection</h1>
+                <h1>Search for recipes</h1>
                 <SearchRecipeForm onRecipeSelect={this.onRecipeSelect}/>
             </Segment>
         );
@@ -32,10 +32,10 @@ const mapStateToProps = state => ({
     recipe: state.recipe
   });
 
-  RecipePage.propTypes = {
+  BrowsePage.propTypes = {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired
   };
 
-export default connect(mapStateToProps)(RecipePage);;
+export default connect(mapStateToProps)(BrowsePage);;

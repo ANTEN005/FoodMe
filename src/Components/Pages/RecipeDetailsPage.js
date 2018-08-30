@@ -9,9 +9,10 @@ class RecipeDetailsPage extends React.Component {
       return(
       <Grid columns={3} relaxed>
       <Grid.Column>
-        <Header as='h2' textAlign='center'>{selectedRecipe.name} </Header>
+        <Header as='h5' textAlign='center'>{selectedRecipe.name} </Header>
         <Segment basic>
           <Image src={'/assets/food2.jpg'} size='medium' floated='left' />
+          <Button onClick={ () => this.props.dispatch(addToMyRecipes(selectedRecipe))}>save to my recipes</Button>
         </Segment>
       </Grid.Column>
       <Grid.Column>
@@ -22,7 +23,6 @@ class RecipeDetailsPage extends React.Component {
         <Header as='h5' textAlign='center'>Description</Header>
         <Segment basic>{selectedRecipe.description}</Segment>
       </Grid.Column>
-      <Button onClick={ () => this.props.dispatch(addToMyRecipes(selectedRecipe))}>save to my recipes</Button>
       </Grid>
 
 

@@ -6,7 +6,7 @@ import Recipe from '../models/Recipe';
 const router = express.Router();
 router.use(authenticate);
 router.get('/search', (req, res) => {
-    MyRecipes.find({}).exec((err,recipes) => {
+    MyRecipes.find({userId: req.currentUser._id}).exec((err,recipes) => {
         if(err){
         return res.json({'success':false,'message':'Some Error'});
         }

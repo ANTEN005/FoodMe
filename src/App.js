@@ -7,7 +7,7 @@ import DashboardPage from "./Components/Pages/DashboardPage";
 import UserRoute from './Components/routes/UserRoute';
 import GuestRoute from './Components/routes/GuestRoute';
 import SignupPage from "./Components/Pages/SignupPage";
-import RecipePage from "./Components/Pages/RecipePage";
+import BrowsePage from "./Components/Pages/BrowsePage";
 import TopNavigation from './Components/navigation/TopNavigation';
 import {connect} from 'react-redux';
 import AddRecipePage from './Components/Pages/AddRecipePage';
@@ -25,7 +25,7 @@ const App = ({location, isAuthenticated}) => (
     <GuestRoute location={location} path="/login" exact component={LoginPage}/>
     <GuestRoute location={location} path="/signup" exact component={SignupPage}/>
     <UserRoute location={location} path="/dashboard"  exact component={DashboardPage}/>
-    <UserRoute location={location} path="/findrecipes" exact component={RecipePage}/>
+    <UserRoute location={location} path="/findrecipes" exact component={BrowsePage}/>
     <UserRoute location={location} path="/addrecipes" exact component={AddRecipePage}/>
     <UserRoute location={location} path="/myrecipes" exact component={MyRecipesPage}/>
     <UserRoute location={location} path="/recipedetails" exact component={RecipeDetailsPage}/>
