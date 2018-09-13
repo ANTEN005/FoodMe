@@ -12,9 +12,7 @@ class SearchRecipeForm extends React.Component{
         loading: false,
         options: [], //array of objects
         recipes:{}
-
     }
-
     onSearchChange = (e, data) => {
         clearTimeout(this.timer);
         this.setState({
@@ -22,7 +20,6 @@ class SearchRecipeForm extends React.Component{
         });
         this.timer=setTimeout(this.fetchOptions, 1000);
     }
-
     onChange = (e, data) => { 
         this.setState({ query: data.value });
         console.log(this.state.recipes[data.value]);
@@ -38,11 +35,13 @@ class SearchRecipeForm extends React.Component{
             console.log(recipes)
             const options = [];
             const recipesHash = {};
+            var i = 0;
             recipes.forEach(recipe => {
-              recipesHash[recipe._id] = recipe;
+              i++;
+              recipesHash[i] = recipe;
               options.push({
-                key: recipe._id,
-                value: recipe._id,
+                key: i,
+                value: i,
                 text: recipe.name
               });
             });
@@ -50,9 +49,7 @@ class SearchRecipeForm extends React.Component{
             console.log(options);
             console.log(recipes);
           });
-
     }
-
     render(){
         return(
             <Form>
@@ -70,10 +67,8 @@ class SearchRecipeForm extends React.Component{
         );
     }
 }
-
 SearchRecipeForm.propTypes = {
     onRecipeSelect: PropTypes.func.isRequired
   };
   
-
 export default SearchRecipeForm;

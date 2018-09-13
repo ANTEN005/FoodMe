@@ -15,7 +15,7 @@ class MyRecipesPage extends React.Component {
     const { error, loading, recipes } = this.props;
     console.log(recipes);
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return <div>No recipes were found.</div>;
     }
 
     if (loading) {

@@ -5,7 +5,7 @@ import authenticate from "../middleware/authenticate";
 const router = express.Router();
 router.use(authenticate);
 router.get('/search', (req, res) => {
-    Recipe.find({}).exec((err,recipes) => {
+    Recipe.find({}, { _id: false }).exec((err,recipes) => {
         if(err){
         return res.json({'success':false,'message':'Some Error'});
         }

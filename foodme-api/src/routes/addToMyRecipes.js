@@ -10,7 +10,7 @@ router.use(authenticate);
 router.post('/', (req, res) => {
     MyRecipes.create({ ...req.body.recipe, userId: req.currentUser._id })
     .then(recipe => res.json({recipe}))
-        .catch(err => res.status(400).json({errors: parseErrors(err.errors)}));      
+        .catch(err => res.status(400).json({errors: parseErrors(err.errors)}));  
 });
 
 export default router;

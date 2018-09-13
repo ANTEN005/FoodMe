@@ -16,7 +16,7 @@ import RecipeDetailsPage from './Components/Pages/RecipeDetailsPage';
 import HomeNavigationBar from './Components/navigation/HomeNavigationBar';
 
 
-//only show navbar if user is authenticated
+//Show different navbars depending on if the user isAuthenticated
 const App = ({location, isAuthenticated}) => (
   <div className="ui container">
     {isAuthenticated ? <TopNavigation /> : <HomeNavigationBar/>}

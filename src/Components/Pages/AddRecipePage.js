@@ -18,12 +18,7 @@ class AddRecipePage extends React.Component {
     }
 };
 
-/* AddRecipePage.propTypes ={
-    history:PropTypes.shape({
-        push: PropTypes.func.isRequired
-    }).isRequired,
-    addRecipe: PropTypes.func.isRequired
-}; */
+
 AddRecipePage.propTypes ={
     addRecipe: PropTypes.func.isRequired
 };

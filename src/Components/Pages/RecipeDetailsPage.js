@@ -24,14 +24,9 @@ class RecipeDetailsPage extends React.Component {
         <Segment basic>{selectedRecipe.description}</Segment>
       </Grid.Column>
       </Grid>
-
-
     )}
     }
-
     const mapStateToProps = (state) => ({
       selectedRecipe: state.selectedRecipe,
-
     })
-
  export default connect(mapStateToProps)(RecipeDetailsPage);
